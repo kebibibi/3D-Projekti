@@ -5,28 +5,45 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public float arrowSpeed;
-    bool launch;
+    public float timer;
+
+    public bool flying;
+    public bool stopped;
+
     public Vector3 arrowDir;
+
     ParticleSystem ps;
+    public WeaponController weapon;
+
 
     private void Start()
     {
         ps = GetComponent<ParticleSystem>();
+
+        weapon = GetComponent<WeaponController>();
+        weapon = FindAnyObjectByType<WeaponController>();
+
+        arrowDir = new Vector3(0, 0, 1);
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent != null)
         {
-            launch = true;
             transform.parent = null;
-            arrowDir = Vector3.forward;
+            weapon.loaded = false;
+            flying = true;
+        }
+
+        if (stopped == true)
+        {
+
         }
     }
 
     private void FixedUpdate()
     {
-        if (launch == true)
+        if (flying == true)
         {
             Vector3 arrowVel = arrowDir * arrowSpeed;
             transform.Translate(arrowVel * Time.deltaTime);
@@ -37,7 +54,8 @@ public class Arrow : MonoBehaviour
     {
         if (other.gameObject.tag == "Wall")
         {
-            launch = false;
+            flying = false;
+            stopped = true;
             arrowSpeed = 0;
             ps.Play();
         }

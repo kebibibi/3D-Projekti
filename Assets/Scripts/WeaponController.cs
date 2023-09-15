@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public Arrow arrowClass;
+    public PlayerMovement player;
     public GameObject arrow;
     public Transform parentPos;
+    public bool loaded;
 
     void Start()
     {
-        Instantiate(arrow, parentPos);
     }
 
     void Update()
     {
-        parentPos = transform;
+        parentPos = player.transform;
+
+        if (Input.GetKeyDown(KeyCode.R) && loaded == false)
+        {
+            Instantiate(arrow, parentPos);
+            loaded = true;
+        }
     }
 }
