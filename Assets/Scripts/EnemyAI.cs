@@ -27,7 +27,11 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         destination = player.position;
-        
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()

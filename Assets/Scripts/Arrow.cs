@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour
 {
     public float arrowSpeed;
     public float timer;
+    public float damage;
 
     public bool flying;
     public bool stopped;
@@ -14,6 +15,7 @@ public class Arrow : MonoBehaviour
 
     ParticleSystem ps;
     public WeaponController weapon;
+    public EnemyAI enemy;
 
 
     private void Start()
@@ -22,6 +24,9 @@ public class Arrow : MonoBehaviour
 
         weapon = GetComponent<WeaponController>();
         weapon = FindAnyObjectByType<WeaponController>();
+
+        enemy = GetComponent<EnemyAI>();
+        enemy = FindAnyObjectByType<EnemyAI>();
 
         arrowDir = new Vector3(0, 0, 1);
     }
@@ -41,7 +46,7 @@ public class Arrow : MonoBehaviour
             {
                 timer -= Time.deltaTime;
 
-                if (timer < 0)
+                if (timer <= 0)
                 {
                     Destroy(this.gameObject);
                 }
@@ -59,8 +64,9 @@ public class Arrow : MonoBehaviour
             {
                 timer -= Time.deltaTime;
 
-                if (timer < 0)
+                if (timer <= 0)
                 {
+                    flying = false;
                     Destroy(this.gameObject);
                 }
             }
@@ -69,12 +75,20 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Wall")
+        if (other.gameObject.CompareTag("Wall"))
         {
             flying = false;
             stopped = true;
             arrowSpeed = 0;
             ps.Play();
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (flying == true)
+            {
+                enemy.health -= damage;
+            }
         }
     }
 }
