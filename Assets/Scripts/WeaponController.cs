@@ -5,12 +5,22 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public PlayerMovement player;
+
     public GameObject arrow;
+
     public Transform parentPos;
+
     public bool loaded;
+    public bool loading;
+
+    public float timer;
+    public float maxTimer;
 
     void Start()
     {
+        Instantiate(arrow, parentPos);
+        loaded = true;
+        timer = maxTimer;
     }
 
     void Update()
@@ -19,8 +29,22 @@ public class WeaponController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && loaded == false)
         {
-            Instantiate(arrow, parentPos);
-            loaded = true;
+            loading = true;
+        }
+        if (loading == true)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+
+                if (timer < 0)
+                {
+                    Instantiate(arrow, parentPos);
+                    loaded = true;
+                    timer = maxTimer;
+                    loading = false;
+                }
+            }
         }
     }
 }

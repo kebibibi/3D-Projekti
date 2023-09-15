@@ -121,7 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowSpeed: 30
+  timer: 10
   flying: 0
+  stopped: 0
   arrowDir: {x: 0, y: 0, z: 0}
   weapon: {fileID: 0}
 --- !u!198 &1815656695712375421

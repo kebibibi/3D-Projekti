@@ -37,7 +37,15 @@ public class Arrow : MonoBehaviour
 
         if (stopped == true)
         {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
 
+                if (timer < 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 
@@ -47,6 +55,15 @@ public class Arrow : MonoBehaviour
         {
             Vector3 arrowVel = arrowDir * arrowSpeed;
             transform.Translate(arrowVel * Time.deltaTime);
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+
+                if (timer < 0)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
         }
     }
 

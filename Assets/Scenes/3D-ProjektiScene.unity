@@ -560,9 +560,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28363ff5de1de4f43abc2899598a11ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowClass: {fileID: -3574253599428407755, guid: 4e4324c2971cc484eafea82840f829d0, type: 3}
-  arrow: {fileID: 4377557003531563815, guid: 4e4324c2971cc484eafea82840f829d0, type: 3}
+  player: {fileID: 1889803353}
+  arrow: {fileID: 6600893672793581699, guid: 97c374dc714f541999a733936280c103, type: 3}
   parentPos: {fileID: 1889803358}
+  loaded: 0
+  loading: 0
+  timer: 0
+  maxTimer: 1.5
 --- !u!1 &1775497018
 GameObject:
   m_ObjectHideFlags: 0
