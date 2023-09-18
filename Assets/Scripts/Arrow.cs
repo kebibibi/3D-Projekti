@@ -12,10 +12,12 @@ public class Arrow : MonoBehaviour
     public bool stopped;
 
     public Vector3 arrowDir;
+    public Vector3 hbScale;
 
     ParticleSystem ps;
     public WeaponController weapon;
     public EnemyAI enemy;
+    public EnemyHb enemyHB;
 
 
     private void Start()
@@ -27,6 +29,8 @@ public class Arrow : MonoBehaviour
 
         enemy = GetComponent<EnemyAI>();
         enemy = FindAnyObjectByType<EnemyAI>();
+
+        enemyHB = FindAnyObjectByType<EnemyHb>();
 
         arrowDir = new Vector3(0, 0, 1);
     }
@@ -88,6 +92,7 @@ public class Arrow : MonoBehaviour
             if (flying == true)
             {
                 enemy.health -= damage;
+                enemyHB.damageGiven += damage;
             }
         }
     }
