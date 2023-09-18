@@ -5,18 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player;
+    public PlayerMovement player;
 
     public Vector3 destination;
 
     public float health;
-    public float maxHealth;
 
     public NavMeshAgent agent;
 
     void Start()
     {
-        health = maxHealth;
+        player = FindAnyObjectByType<PlayerMovement>();
     }
 
     void Seek()
@@ -26,7 +25,7 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        destination = player.position;
+        destination = player.transform.position;
 
         if (health <= 0)
         {
