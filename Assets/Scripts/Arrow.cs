@@ -27,9 +27,6 @@ public class Arrow : MonoBehaviour
         weapon = GetComponent<WeaponController>();
         weapon = FindAnyObjectByType<WeaponController>();
 
-        enemy = GetComponent<EnemyAI>();
-        enemy = FindAnyObjectByType<EnemyAI>();
-
         enemyHB = FindAnyObjectByType<EnemyHb>();
 
         arrowDir = new Vector3(0, 0, 1);
@@ -89,10 +86,11 @@ public class Arrow : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
+            enemy = other.gameObject.GetComponent<EnemyAI>();
+
             if (flying == true)
             {
                 enemy.health -= damage;
-                enemyHB.damageGiven += damage;
             }
         }
     }

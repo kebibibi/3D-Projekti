@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  arrow: {fileID: 8133468414519369168, guid: 97c374dc714f541999a733936280c103, type: 3}
+  enemyHB: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   health: 100
   agent: {fileID: 897362837184516747}

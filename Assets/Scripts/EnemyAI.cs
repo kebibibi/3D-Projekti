@@ -6,16 +6,25 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public PlayerMovement player;
+    public Arrow arrow;
+    public EnemyHb enemyHB;
 
     public Vector3 destination;
 
     public float health;
+    float randomNumber;
 
     public NavMeshAgent agent;
 
     void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>();
+
+        enemyHB = FindAnyObjectByType<EnemyHb>();
+
+        randomNumber = Random.Range(3.2f, 5.2f);
+
+        agent.speed = randomNumber;
     }
 
     void Seek()
@@ -31,6 +40,7 @@ public class EnemyAI : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
     }
 
     private void FixedUpdate()
