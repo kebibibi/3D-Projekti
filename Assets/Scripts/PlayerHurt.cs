@@ -24,6 +24,11 @@ public class PlayerHurt : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(health >= 100)
+        {
+            health = 100;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

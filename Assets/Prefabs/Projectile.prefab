@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b048bb28b94450ba3a048d196c1d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 30
+  arrowSpeed: 60
   timer: 10
-  damage: 18
+  damage: 20
   flying: 0
   stopped: 0
   arrowDir: {x: 0, y: 0, z: 0}
