@@ -122,12 +122,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowSpeed: 30
   timer: 10
-  damage: 12
+  damage: 18
   flying: 0
   stopped: 0
   arrowDir: {x: 0, y: 0, z: 0}
+  hbScale: {x: 0, y: 0, z: 0}
   weapon: {fileID: 0}
   enemy: {fileID: 0}
+  enemyHB: {fileID: 0}
 --- !u!198 &1815656695712375421
 ParticleSystem:
   m_ObjectHideFlags: 0
