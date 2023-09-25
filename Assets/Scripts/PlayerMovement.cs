@@ -21,12 +21,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-       
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        
+        /*if (Physics.Raycast(transform.position, playerDir, out RaycastHit hitInfo, 0.6f))
+        {
+            if (hitInfo.collider.gameObject.CompareTag("Wall"))
+            {
+                playerSpeed = 0;
+            }
+        }*/
     }
 
     private void FixedUpdate()
@@ -34,14 +39,6 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         playerDir = new Vector3(horizontal, 0, vertical).normalized;
-
-
-
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-
-            
-
 
         if (playerDir.x != 0 || playerDir.z != 0)
         {
@@ -54,17 +51,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerSpeed = 0;
         }
-
-
-        if (Physics.Raycast( transform.position, playerDir, out RaycastHit hitInfo, 1f))
-
-            if (hitInfo.collider.gameObject.CompareTag("Wall"))
-            {
-                playerSpeed = 0;
-            }
-           
-            //Debug.Log("There is something in front of the object!");
-
 
         if (playerDir.x == 0 && playerDir.z == 0)
         {

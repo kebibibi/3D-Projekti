@@ -14,7 +14,8 @@ public class Arrow : MonoBehaviour
     public Vector3 arrowDir;
     public Vector3 hbScale;
 
-    ParticleSystem ps;
+    ParticleSystem.MainModule main;
+    public ParticleSystem ps;
     public WeaponController weapon;
     public EnemyAI enemy;
     public EnemyHb enemyHB;
@@ -22,6 +23,7 @@ public class Arrow : MonoBehaviour
 
     private void Start()
     {
+        main = ps.main;
         ps = GetComponent<ParticleSystem>();
 
         weapon = GetComponent<WeaponController>();
@@ -61,6 +63,7 @@ public class Arrow : MonoBehaviour
         {
             Vector3 arrowVel = arrowDir * arrowSpeed;
             transform.Translate(arrowVel * Time.deltaTime);
+
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
@@ -76,12 +79,23 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Wall") && flying == true)
+        if (other.gameObject.CompareTag("Brown") && flying == true)
         {
             flying = false;
             stopped = true;
             arrowSpeed = 0;
+            main.startColor = new Color(137, 74, 33, 100);
             ps.Play();
+        }
+
+        if (other.gameObject.CompareTag("White") && flying == true)
+        {
+            flying = false;
+            stopped = true;
+            arrowSpeed = 0;
+            main.startColor = new Color(255, 255, 255, 100);
+            ps.Play();
+            Debug.Log("homo");
         }
 
         if (other.gameObject.CompareTag("Enemy"))

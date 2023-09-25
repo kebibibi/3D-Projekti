@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3945530311959785523}
   - component: {fileID: 4600071479697734939}
   - component: {fileID: 1210978234275770824}
+  - component: {fileID: 6742594315207776456}
   - component: {fileID: 8133468414519369168}
   - component: {fileID: 1815656695712375421}
   - component: {fileID: 2026845465271487850}
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3945530311959785523
 MeshFilter:
@@ -106,8 +107,35 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0.35}
+  m_Size: {x: 1.5, y: 1.5, z: 0.9989507}
+  m_Center: {x: 0, y: 0, z: 0.00947535}
+--- !u!54 &6742594315207776456
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600893672793581699}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!114 &8133468414519369168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +155,7 @@ MonoBehaviour:
   stopped: 0
   arrowDir: {x: 0, y: 0, z: 0}
   hbScale: {x: 0, y: 0, z: 0}
+  ps: {fileID: 1815656695712375421}
   weapon: {fileID: 0}
   enemy: {fileID: 0}
   enemyHB: {fileID: 0}
@@ -700,7 +729,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -4874,7 +4903,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2f8405e2779544eeb51972be89d4c84, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
