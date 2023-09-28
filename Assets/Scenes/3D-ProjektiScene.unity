@@ -324,8 +324,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.8775937}
-  m_Center: {x: -6.186722e-18, y: 0, z: -0.076431245}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &669290192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -845,9 +845,6 @@ MonoBehaviour:
   timer: 0
   maxTimer: 2.35
   audioSource: {fileID: 1076600371}
-  audioClips:
-  - {fileID: 8300000, guid: df50e27e620bb417e8889fcf6406cabe, type: 3}
-  - {fileID: 8300000, guid: 0859f3cc246384da1b1da07f21643b0f, type: 3}
 --- !u!82 &1076600371
 AudioSource:
   m_ObjectHideFlags: 0
@@ -858,9 +855,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: fd6317eaa9fbc4b8aa883c4cd480d78a, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: df50e27e620bb417e8889fcf6406cabe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.166
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1451,8 +1448,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1.3}
-  m_Center: {x: -6.186722e-18, y: 0, z: -0.076431245}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1935710449
 MeshRenderer:
   m_ObjectHideFlags: 0

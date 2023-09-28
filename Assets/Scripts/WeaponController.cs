@@ -17,7 +17,6 @@ public class WeaponController : MonoBehaviour
     public float maxTimer;
 
     public AudioSource audioSource;
-    public List<AudioClip> audioClips = new List<AudioClip>();
 
     void Start()
     {
@@ -33,7 +32,6 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && loaded == false && loading == false)
         {
             loading = true;
-            audioSource.clip = audioClips[0];
             audioSource.Play();
         }
         if (loading == true)

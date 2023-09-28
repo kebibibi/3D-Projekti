@@ -8,6 +8,8 @@ public class Arrow : MonoBehaviour
     public float timer;
     public float damage;
 
+    public int randomNum;
+
     public bool flying;
     public bool stopped;
 
@@ -20,11 +22,17 @@ public class Arrow : MonoBehaviour
     public EnemyAI enemy;
     public EnemyHb enemyHB;
 
+    public AudioSource AudioSource;
+    public AudioSource audioSource1;
+
+    public List<AudioClip> Audio = new List<AudioClip>();
 
     private void Start()
     {
         main = ps.main;
         ps = GetComponent<ParticleSystem>();
+
+        AudioSource = GetComponent<AudioSource>();
 
         weapon = GetComponent<WeaponController>();
         weapon = FindAnyObjectByType<WeaponController>();
@@ -34,12 +42,16 @@ public class Arrow : MonoBehaviour
         arrowDir = new Vector3(0, 0, 1);
     }
 
+    void Randomizer()
+    {
+        randomNum = Random.Range(0, 4);
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent != null)
         {
-            weapon.audioSource.clip = weapon.audioClips[1];
-            weapon.audioSource.Play();
+            AudioSource.Play();
 
             transform.parent = null;
             weapon.loaded = false;
@@ -78,6 +90,15 @@ public class Arrow : MonoBehaviour
                 }
             }
         }
+
+        /*if (Physics.Raycast(transform.position, arrowDir, out RaycastHit hitInfo, 4f))
+        {
+            if (hitInfo.collider.gameObject.CompareTag("Brown"))
+            {
+                arrowSpeed = 0;
+            }
+        }*/
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -89,6 +110,10 @@ public class Arrow : MonoBehaviour
             arrowSpeed = 0;
             main.startColor = new Color(137, 74, 33, 100);
             ps.Play();
+
+            Randomizer();
+            audioSource1.clip = Audio[randomNum];
+            audioSource1.Play();
         }
 
         if (other.gameObject.CompareTag("White") && flying == true)
@@ -98,7 +123,10 @@ public class Arrow : MonoBehaviour
             arrowSpeed = 0;
             main.startColor = new Color(255, 255, 255, 100);
             ps.Play();
-            Debug.Log("homo");
+
+            Randomizer();
+            audioSource1.clip = Audio[randomNum];
+            audioSource1.Play();
         }
 
         if (other.gameObject.CompareTag("Enemy"))
