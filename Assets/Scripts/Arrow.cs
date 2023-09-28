@@ -38,6 +38,9 @@ public class Arrow : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent != null)
         {
+            weapon.audioSource.clip = weapon.audioClips[1];
+            weapon.audioSource.Play();
+
             transform.parent = null;
             weapon.loaded = false;
             flying = true;
