@@ -49,7 +49,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent != null)
+        if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent == weapon.parentPos)
         {
             AudioSource.Play();
 
@@ -60,6 +60,8 @@ public class Arrow : MonoBehaviour
 
         if (stopped == true)
         {
+            arrowSpeed = 0;
+
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
@@ -103,30 +105,35 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        //transform.parent = other.transform;
-
-        if (other.gameObject.CompareTag("Brown") && flying == true)
+        if (other.gameObject.CompareTag("Brown"))
         {
-            flying = false;
-            stopped = true;
-            arrowSpeed = 0;
-            ps.Play();
+            if (flying == true)
+            {
+                flying = false;
+                stopped = true;
+                arrowSpeed = 0;
+                ps.Play();
 
-            Randomizer();
-            audioSource1.clip = Audio[randomNum];
-            audioSource1.Play();
+                Randomizer();
+                audioSource1.clip = Audio[randomNum];
+                audioSource1.Play();
+            }
         }
 
-        if (other.gameObject.CompareTag("White") && flying == true)
+        if (other.gameObject.CompareTag("White"))
         {
-            flying = false;
-            stopped = true;
-            arrowSpeed = 0;
-            ps.Play();
+            if (flying == true)
+            {
+                flying = false;
+                stopped = true;
+                arrowSpeed = 0;
+                ps.Play();
+                transform.parent = other.transform;
 
-            Randomizer();
-            audioSource1.clip = Audio[randomNum];
-            audioSource1.Play();
+                Randomizer();
+                audioSource1.clip = Audio[randomNum];
+                audioSource1.Play();
+            }
         }
 
         if (other.gameObject.CompareTag("Enemy"))

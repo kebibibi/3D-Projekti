@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b048bb28b94450ba3a048d196c1d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowSpeed: 45
+  arrowSpeed: 30
   timer: 10
   damage: 20
   randomNum: 0
