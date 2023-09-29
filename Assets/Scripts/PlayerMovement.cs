@@ -9,10 +9,17 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerSpeed;
     public float maxSpeed;
+    public float timer;
     float horizontal;
     float vertical;
 
     Vector3 playerDir;
+
+    public AudioSource audioSource;
+
+    public List<AudioClip> footsteps = new List<AudioClip>();
+    int randomStep;
+    int lastStep;
 
     private void Start()
     {
@@ -34,6 +41,17 @@ public class PlayerMovement : MonoBehaviour
         }*/
     }
 
+    void AudioRandomizer()
+    {
+        int maxAttempts = 10;
+        
+        for (int i = 0; randomStep == lastStep && i < maxAttempts; i++)
+        {
+            randomStep = Random.Range(0, 5);
+        }
+        lastStep = randomStep;
+    }
+
     private void FixedUpdate()
     {
 
@@ -43,13 +61,29 @@ public class PlayerMovement : MonoBehaviour
         if (playerDir.x != 0 || playerDir.z != 0)
         {
             playerSpeed += 0.5f;
-      
+
             if (playerSpeed > maxSpeed)
                 playerSpeed = maxSpeed;
         }
         else
         {
             playerSpeed = 0;
+        }
+
+        if (playerSpeed > 0)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+
+                if (timer <= 0)
+                {
+                    AudioRandomizer();
+                    audioSource.clip = footsteps[randomStep];
+                    audioSource.Play();
+                    timer = 0.5f;
+                }
+            }
         }
 
         if (playerDir.x == 0 && playerDir.z == 0)

@@ -70,6 +70,14 @@ public class Arrow : MonoBehaviour
                 }
             }
         }
+
+        /*if (Physics.Raycast(transform.position, arrowDir, out RaycastHit hitInfo, 1f))
+        {
+            if (hitInfo.collider.gameObject.CompareTag("Brown"))
+            {
+
+            }
+        }*/
     }
 
     private void FixedUpdate()
@@ -90,25 +98,18 @@ public class Arrow : MonoBehaviour
                 }
             }
         }
-
-        /*if (Physics.Raycast(transform.position, arrowDir, out RaycastHit hitInfo, 4f))
-        {
-            if (hitInfo.collider.gameObject.CompareTag("Brown"))
-            {
-                arrowSpeed = 0;
-            }
-        }*/
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
+
+        //transform.parent = other.transform;
+
         if (other.gameObject.CompareTag("Brown") && flying == true)
         {
             flying = false;
             stopped = true;
             arrowSpeed = 0;
-            main.startColor = new Color(137, 74, 33, 100);
             ps.Play();
 
             Randomizer();
@@ -121,7 +122,6 @@ public class Arrow : MonoBehaviour
             flying = false;
             stopped = true;
             arrowSpeed = 0;
-            main.startColor = new Color(255, 255, 255, 100);
             ps.Play();
 
             Randomizer();

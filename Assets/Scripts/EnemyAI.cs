@@ -12,7 +12,8 @@ public class EnemyAI : MonoBehaviour
     public Vector3 destination;
 
     public float health;
-    float randomNumber;
+    float randomSpeed;
+    float randomTurn;
 
     public NavMeshAgent agent;
 
@@ -22,9 +23,11 @@ public class EnemyAI : MonoBehaviour
 
         enemyHB = FindAnyObjectByType<EnemyHb>();
 
-        randomNumber = Random.Range(3.2f, 5.2f);
+        randomSpeed = Random.Range(3.2f, 5.2f);
+        randomTurn = Random.Range(80.1f, 119.1f);
 
-        agent.speed = randomNumber;
+        agent.speed = randomSpeed;
+        agent.angularSpeed = randomTurn;
     }
 
     void Seek()
@@ -40,7 +43,6 @@ public class EnemyAI : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
     }
 
     private void FixedUpdate()
