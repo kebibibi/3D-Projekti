@@ -21,6 +21,7 @@ public class Arrow : MonoBehaviour
     public WeaponController weapon;
     public EnemyAI enemy;
     public EnemyHb enemyHB;
+    public BoxCollider bc;
 
     public AudioSource AudioSource;
     public AudioSource audioSource1;
@@ -112,6 +113,7 @@ public class Arrow : MonoBehaviour
                 flying = false;
                 stopped = true;
                 arrowSpeed = 0;
+                bc.isTrigger = true;
                 ps.Play();
 
                 Randomizer();
@@ -127,6 +129,7 @@ public class Arrow : MonoBehaviour
                 flying = false;
                 stopped = true;
                 arrowSpeed = 0;
+                bc.isTrigger = true;
                 ps.Play();
                 transform.parent = other.transform;
 

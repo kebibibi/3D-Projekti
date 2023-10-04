@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - White
   - Brown
+  - Ground
   layers:
   - Default
   - TransparentFX
