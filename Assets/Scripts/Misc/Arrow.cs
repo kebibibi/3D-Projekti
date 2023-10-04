@@ -132,6 +132,8 @@ public class Arrow : MonoBehaviour
                 bc.isTrigger = true;
                 ps.Play();
                 transform.parent = other.transform;
+                Transform parent = transform.parent;
+                transform.position = parent.position;
 
                 Randomizer();
                 audioSource1.clip = Audio[randomNum];
