@@ -6,12 +6,37 @@ public class CamFollow : MonoBehaviour
 {
     public Transform player;
 
-    public float speed;
+    public float transitionSpeed;
+    public float followSpeed;
+
+    public bool coolTransition;
+
+    private void Start()
+    {
+        transitionSpeed = 0.04f;
+    }
 
     void FixedUpdate()
     {
-        Vector3 smoothPos = Vector3.Lerp(transform.position, player.position, speed);
+        if (coolTransition)
+        {
+            Vector3 smoothPos = Vector3.Lerp(transform.position, player.position, transitionSpeed);
 
-        transform.position = new Vector3(smoothPos.x, 20, smoothPos.z);
+            float smoothUp = Mathf.Lerp(transform.position.y, 20, transitionSpeed);
+            float smoothRotX = Mathf.Lerp(transform.eulerAngles.x, 90, transitionSpeed);
+            float smoothRotY = Mathf.Lerp(transform.eulerAngles.y, 0, transitionSpeed);
+
+            transform.position = new Vector3(smoothPos.x, smoothUp, smoothPos.z);
+            transform.eulerAngles = new Vector3(smoothRotX, smoothRotY, 0);
+        }
+
+        if(transform.position.y >= 19.99f)
+        {
+            coolTransition = false;
+            Vector3 smoothPos = Vector3.Lerp(transform.position, player.position, followSpeed);
+
+            transform.position = new Vector3(smoothPos.x, 20, smoothPos.z);
+            transform.eulerAngles = new Vector3(90, 0, 0);
+        }
     }
 }

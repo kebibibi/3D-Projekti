@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        enabled = false;
     }
 
     private void Update()

@@ -7,6 +7,11 @@ public class PlayerTurn : MonoBehaviour
     public Vector3 mouseDirection;
     public float mouseDistanceFromPlayer = 0.2f;
 
+    private void Start()
+    {
+        enabled = false;
+    }
+
     private void Update()
     {
         transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);

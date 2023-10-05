@@ -6,7 +6,7 @@ public class CubeBreak : MonoBehaviour
 {
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
-    public BoxCollider collider;
+    public BoxCollider bc;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -19,8 +19,8 @@ public class CubeBreak : MonoBehaviour
             rigidbodies[4].isKinematic = false;
             rigidbodies[5].isKinematic = false;
 
-            collider.isTrigger = true;
-            collider.enabled = false;
+            bc.isTrigger = true;
+            bc.enabled = false;
         }
     }
 }
