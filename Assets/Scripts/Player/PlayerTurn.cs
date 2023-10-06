@@ -6,6 +6,7 @@ public class PlayerTurn : MonoBehaviour
 {
     public Vector3 mouseDirection;
     public float mouseDistanceFromPlayer = 0.2f;
+    public CamFollow cam;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class PlayerTurn : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 20;
+        mousePos.z = cam.transform.position.y;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
         mouseDirection = mousePos - transform.position;

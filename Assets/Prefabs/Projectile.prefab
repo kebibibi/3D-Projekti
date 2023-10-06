@@ -162,7 +162,6 @@ MonoBehaviour:
   weapon: {fileID: 0}
   enemy: {fileID: 0}
   enemyHB: {fileID: 0}
-  bc: {fileID: 0}
   AudioSource: {fileID: 8485422659881282935}
   audioSource1: {fileID: 4902714049551500992}
   Audio:
@@ -4974,7 +4973,7 @@ AudioSource:
   m_GameObject: {fileID: 6600893672793581699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: fd6317eaa9fbc4b8aa883c4cd480d78a, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 927b9d50d57d9445ea6e3df4066029e9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0859f3cc246384da1b1da07f21643b0f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.15
@@ -5070,7 +5069,7 @@ AudioSource:
   m_GameObject: {fileID: 6600893672793581699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: fd6317eaa9fbc4b8aa883c4cd480d78a, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 927b9d50d57d9445ea6e3df4066029e9, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
