@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableMenu : MonoBehaviour
+public class Menu : MonoBehaviour
 {
     public GameObject menu;
 
@@ -26,5 +26,10 @@ public class DisableMenu : MonoBehaviour
         playerMove.enabled = true;
         weapon.enabled = true;
         weapon.FirstArrow();
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
