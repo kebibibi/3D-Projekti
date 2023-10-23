@@ -22,7 +22,7 @@ public class PlayerHurt : MonoBehaviour
     {
         if (health <= 0)
         {
-            Destroy(gameObject);
+            
         }
 
         if(health >= 100)

@@ -154,6 +154,8 @@ MonoBehaviour:
   enemyHB: {fileID: 0}
   destination: {x: 0, y: 0, z: 0}
   health: 100
+  seeking: 0
+  seekDis: 14
   agent: {fileID: 897362837184516747}
 --- !u!195 &897362837184516747
 NavMeshAgent:

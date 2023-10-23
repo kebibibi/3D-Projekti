@@ -15,6 +15,9 @@ public class EnemyAI : MonoBehaviour
     float randomSpeed;
     float randomTurn;
 
+    public bool seeking;
+    public float seekDis;
+
     public NavMeshAgent agent;
 
     void Start()
@@ -28,6 +31,8 @@ public class EnemyAI : MonoBehaviour
 
         agent.speed = randomSpeed;
         agent.angularSpeed = randomTurn;
+
+        seeking = false;
     }
 
     void Seek()
@@ -47,6 +52,16 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Seek();
+        Vector3 playerDis = player.transform.position - transform.position;
+
+        if(playerDis.magnitude <= seekDis)
+        {
+            seeking = true;
+
+            if(seeking == true)
+            {
+                Seek();
+            }
+        }
     }
 }
