@@ -9,7 +9,12 @@ public class CamFollow : MonoBehaviour
     public float transitionSpeed;
     public float followSpeed;
 
+    public float camX;
+    public float camY;
+
     public bool coolTransition;
+
+    public Vector3 playerRot;
 
     private void Start()
     {
@@ -35,8 +40,8 @@ public class CamFollow : MonoBehaviour
             coolTransition = false;
             Vector3 smoothPos = Vector3.Lerp(transform.position, player.position, followSpeed);
 
-            transform.position = new Vector3(smoothPos.x, 14, smoothPos.z);
-            transform.eulerAngles = new Vector3(90, 0, 0);
+            transform.position = new Vector3(smoothPos.x, 14, smoothPos.z - 2f);
+            transform.localEulerAngles = playerRot;
         }
     }
 }
