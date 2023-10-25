@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ffd53d959e33e4ae1aac589eb3ab63b5, type: 3}
       propertyPath: m_Name
-      value: Piano Variant
+      value: Piano
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -78,6 +78,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffd53d959e33e4ae1aac589eb3ab63b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3992438101417025307}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffd53d959e33e4ae1aac589eb3ab63b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5481695270479827210}
   m_SourcePrefab: {fileID: 100100000, guid: ffd53d959e33e4ae1aac589eb3ab63b5, type: 3}
 --- !u!1 &8293246110123898402 stripped
 GameObject:
@@ -132,3 +135,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 137.6826, y: 66.07323, z: 115.33436}
   m_Center: {x: 0, y: -26.177372, z: 0}
+--- !u!114 &5481695270479827210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293246110123898402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 1
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
