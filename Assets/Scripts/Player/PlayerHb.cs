@@ -8,7 +8,6 @@ public class PlayerHb : MonoBehaviour
     public Transform player;
     public PlayerHurt playerH;
 
-
     void Update()
     {
         hbScale.x = playerH.health / 100;

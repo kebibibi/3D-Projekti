@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2152094763628572406}
   - component: {fileID: 4163984868032267894}
   - component: {fileID: 4955175705848529428}
+  - component: {fileID: 1118594827652380939}
   m_Layer: 0
   m_Name: pieni_ovi
   m_TagString: Brown
@@ -27,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 2447297424427307773}
   m_LocalRotation: {x: -1.4997598e-32, y: 1.2246469e-16, z: 1.2246469e-16, w: 1}
   m_LocalPosition: {x: -48.153946, y: 4.793839, z: 15.951157}
-  m_LocalScale: {x: 3.8375201, y: 3.6741042, z: 3.6741042}
+  m_LocalScale: {x: 3.8, y: 4.95, z: 3.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4163984868032267894
 MeshFilter:
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1118594827652380939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447297424427307773}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.81214, y: 2.7880595, z: 3.8126953}
+  m_Center: {x: -0.52910924, y: -0.038091898, z: -0.73504055}

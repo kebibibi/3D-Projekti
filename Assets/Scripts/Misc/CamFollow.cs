@@ -30,12 +30,12 @@ public class CamFollow : MonoBehaviour
             transform.eulerAngles = new Vector3(smoothRotX, smoothRotY, 0);
         }
 
-        if(transform.position.y >= 14.99f)
+        if(transform.position.y >= 13.99f)
         {
             coolTransition = false;
             Vector3 smoothPos = Vector3.Lerp(transform.position, player.position, followSpeed);
 
-            transform.position = new Vector3(smoothPos.x, 15, smoothPos.z);
+            transform.position = new Vector3(smoothPos.x, 14, smoothPos.z);
             transform.eulerAngles = new Vector3(90, 0, 0);
         }
     }

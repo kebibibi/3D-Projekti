@@ -11,8 +11,15 @@ public class Menu : MonoBehaviour
 
     public PlayerTurn turn;
     public PlayerMovement playerMove;
+    public GameObject hb;
     public WeaponController weapon;
     public Arrow arrow;
+    public Camera cam;
+
+    private void Start()
+    {
+        hb.SetActive(false);
+    }
 
     public void DisableMenuFunc()
     {
@@ -26,6 +33,10 @@ public class Menu : MonoBehaviour
         playerMove.enabled = true;
         weapon.enabled = true;
         weapon.FirstArrow();
+        hb.SetActive(true);
+        cam.transform.parent = null;
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void Exit()

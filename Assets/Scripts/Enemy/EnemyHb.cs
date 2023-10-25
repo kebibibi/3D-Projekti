@@ -9,11 +9,6 @@ public class EnemyHb : MonoBehaviour
 
     public float damageGiven;
 
-    void Start()
-    {
-        enemy = FindFirstObjectByType<EnemyAI>();
-    }
-
     private void Update()
     {
         hbScale.x = enemy.health / 100;
