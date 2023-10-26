@@ -3376,11 +3376,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1889803358}
   transitionSpeed: 0.02
-  followSpeed: 0.6
-  camX: 0
-  camY: 0
+  followSpeed: 0.2
+  changeZ: 1.6
   coolTransition: 0
-  playerRot: {x: 80, y: 360, z: 0}
+  playerRot: {x: 65, y: 360, z: 0}
+  zRange: {x: 0, y: 0, z: 0}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7683,7 +7683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889803352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9.37}
+  m_LocalPosition: {x: 0, y: 0, z: -8.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7768,7 +7768,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 211.84602
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -8836,11 +8836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da29b17445c54dca9fbdaefcd07c94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAmount: 0.5
-  fadeTime: 0.3
-  ogOpacity: 0
-  mat: {fileID: 0}
-  fade: 0
 --- !u!1 &2021558876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7335557491598935215, guid: 480df94ca009740a4a08b9dd19410fd1, type: 3}
@@ -8858,11 +8853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da29b17445c54dca9fbdaefcd07c94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAmount: 0.5
-  fadeTime: 0.3
-  ogOpacity: 0
-  mat: {fileID: 0}
-  fade: 0
 --- !u!4 &2025403771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7350921871260827241, guid: b1fe60d3acf7f490b90fa0c6af679be4, type: 3}
