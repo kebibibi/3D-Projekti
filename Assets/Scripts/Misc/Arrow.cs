@@ -16,8 +16,6 @@ public class Arrow : MonoBehaviour
     public Vector3 arrowDir;
     public Vector3 hbScale;
 
-    ParticleSystem.MainModule main;
-    public ParticleSystem ps;
     public WeaponController weapon;
     public EnemyAI enemy;
     public EnemyHb enemyHB;
@@ -29,8 +27,6 @@ public class Arrow : MonoBehaviour
 
     private void Start()
     {
-        main = ps.main;
-        ps = GetComponent<ParticleSystem>();
 
         AudioSource = GetComponent<AudioSource>();
 
@@ -112,7 +108,6 @@ public class Arrow : MonoBehaviour
                 flying = false;
                 stopped = true;
                 arrowSpeed = 0;
-                ps.Play();
 
                 Randomizer();
                 audioSource1.clip = Audio[randomNum];
@@ -127,10 +122,11 @@ public class Arrow : MonoBehaviour
                 flying = false;
                 stopped = true;
                 arrowSpeed = 0;
-                ps.Play();
+
                 transform.parent = other.transform;
                 Transform parent = transform.parent;
                 transform.position = parent.position;
+
 
                 Randomizer();
                 audioSource1.clip = Audio[randomNum];
