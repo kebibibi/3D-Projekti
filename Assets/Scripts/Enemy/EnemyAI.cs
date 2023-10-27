@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public PlayerMovement player;
     public Arrow arrow;
     public EnemyHb enemyHB;
+    public salaovi salainen;
 
     public Vector3 destination;
 
@@ -23,8 +24,6 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>();
-
-        enemyHB = FindAnyObjectByType<EnemyHb>();
 
         randomSpeed = Random.Range(3.2f, 5.2f);
         randomTurn = Random.Range(80.1f, 119.1f);
@@ -47,6 +46,7 @@ public class EnemyAI : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
+            salainen.ghostCount++;
         }
     }
 

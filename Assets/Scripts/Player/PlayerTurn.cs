@@ -7,6 +7,7 @@ public class PlayerTurn : MonoBehaviour
     public Vector3 mouseDirection;
     public float mouseDistanceFromPlayer = 0.2f;
     public CamFollow cam;
+    public Camera mainCam;
 
     private void Start()
     {
@@ -22,9 +23,10 @@ public class PlayerTurn : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = cam.transform.position.y;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        mousePos = mainCam.ScreenToWorldPoint(mousePos);
 
         mouseDirection = mousePos - transform.position;
+
         if (mouseDirection.magnitude > mouseDistanceFromPlayer)
         {
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, mouseDirection, 1, 0);

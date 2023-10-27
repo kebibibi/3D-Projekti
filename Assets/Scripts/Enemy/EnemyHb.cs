@@ -19,6 +19,6 @@ public class EnemyHb : MonoBehaviour
         }
 
         transform.localScale = new Vector3(hbScale.x, 1f, 1f);
-        transform.localPosition = new Vector3(enemy.transform.localPosition.x - 0.5f, 1.5f, enemy.transform.localPosition.z + 0.65f);
+        transform.localPosition = new Vector3(enemy.transform.localPosition.x - 0.5f, 3.6f, enemy.transform.localPosition.z + 1f);
     }
 }
