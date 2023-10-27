@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
     public GameObject menu;
+    public GameObject gameover;
 
     public MenuCam camMenu;
     public CamFollow followCam;
@@ -35,6 +37,12 @@ public class Menu : MonoBehaviour
         hb.SetActive(true);
 
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void RestartFunc()
+    {
+        SceneManager.LoadScene("3D-ProjektiScene");
+        gameover.SetActive(false);
     }
 
     public void Exit()

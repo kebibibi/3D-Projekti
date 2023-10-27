@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerHurt : MonoBehaviour
 {
+    public GameObject gameoverScreen;
+
     public float maxHealth;
     public float health;
 
@@ -14,6 +16,7 @@ public class PlayerHurt : MonoBehaviour
 
     void Start()
     {
+        gameoverScreen.SetActive(false);
         health = maxHealth;
         invTimer = maxInv;
     }
@@ -22,7 +25,7 @@ public class PlayerHurt : MonoBehaviour
     {
         if (health <= 0)
         {
-            
+            gameoverScreen.SetActive(true);
         }
 
         if(health >= 100)

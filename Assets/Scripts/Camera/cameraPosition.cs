@@ -13,7 +13,6 @@ public class cameraPosition : MonoBehaviour
             cam.changeZ = 0;
             cam.playerRot.x = 80;
         }
-        
     }
 
     private void OnTriggerExit(Collider other)

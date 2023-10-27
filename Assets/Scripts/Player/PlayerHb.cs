@@ -14,7 +14,7 @@ public class PlayerHb : MonoBehaviour
 
         if (hbScale.x <= 0)
         {
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
         }
 
         transform.localScale = new Vector3(hbScale.x, 1, 1);
