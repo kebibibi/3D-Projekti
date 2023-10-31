@@ -18,7 +18,7 @@ public class salaovi : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (ghostCount == 4)
+        if (ghostCount == 6)
         {
             mainCam.enabled = false;
             cutsceneCam.enabled = true;

@@ -6,6 +6,7 @@ public class EnemyHb : MonoBehaviour
 {
     public Vector3 hbScale;
     public EnemyAI enemy;
+    public GameObject target;
 
     public float damageGiven;
 
@@ -13,12 +14,13 @@ public class EnemyHb : MonoBehaviour
     {
         hbScale.x = enemy.health / 100;
 
-        if(hbScale.x <= 0)
+        if (hbScale.x <= 0)
         {
             Destroy(this.gameObject);
         }
 
         transform.localScale = new Vector3(hbScale.x, 1f, 1f);
-        transform.localPosition = new Vector3(enemy.transform.localPosition.x - 0.5f, 3.6f, enemy.transform.localPosition.z + 1f);
+        transform.localPosition = new Vector3(target.transform.localPosition.x - 0.5f, 3.6f, target.transform.localPosition.z + 1f);
+
     }
 }

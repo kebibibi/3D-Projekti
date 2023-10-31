@@ -16,6 +16,7 @@ public class Menu : MonoBehaviour
     public GameObject hb;
     public WeaponController weapon;
     public Arrow arrow;
+    public cameraPosition camPos;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class Menu : MonoBehaviour
         weapon.enabled = true;
         weapon.FirstArrow();
         hb.SetActive(true);
+        camPos.enabled = true;
 
         Cursor.lockState = CursorLockMode.Confined;
     }
