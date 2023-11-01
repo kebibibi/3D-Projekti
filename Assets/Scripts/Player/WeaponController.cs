@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public PlayerMovement player;
-
     public GameObject arrow;
     public Arrow arrow1;
 
@@ -34,8 +32,7 @@ public class WeaponController : MonoBehaviour
 
     void Update()
     {
-
-        parentPos = player.transform;
+        parentPos = transform;
 
         if (Input.GetKeyDown(KeyCode.R) && loaded == false && loading == false)
         {

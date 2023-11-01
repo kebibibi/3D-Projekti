@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 playerDir;
 
     public AudioSource audioSource;
+    public Animator animator;
 
     public List<AudioClip> footsteps = new List<AudioClip>();
     int randomStep;
@@ -61,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerDir.x != 0 || playerDir.z != 0)
         {
+            animator.SetBool("Run", true);
+
             playerSpeed += 0.5f;
 
             if (playerSpeed > maxSpeed)
@@ -69,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerSpeed = 0;
+            animator.SetBool("Run", false);
         }
 
         if (playerSpeed > 0)

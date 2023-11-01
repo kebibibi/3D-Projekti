@@ -20,15 +20,17 @@ public class Arrow : MonoBehaviour
     public EnemyAI enemy;
     public EnemyHb enemyHB;
 
-    public AudioSource AudioSource;
-    public AudioSource audioSource1;
+    public AudioSource bowSource;
+    public AudioSource arrowHitSource;
+    public AudioSource ghostDMG;
 
-    public List<AudioClip> Audio = new List<AudioClip>();
+    public List<AudioClip> ArrowHit = new List<AudioClip>();
+
+    public List<AudioClip> GhostDmg = new List<AudioClip>();
 
     private void Start()
     {
-
-        AudioSource = GetComponent<AudioSource>();
+        bowSource = GetComponent<AudioSource>();
 
         weapon = GetComponent<WeaponController>();
         weapon = FindAnyObjectByType<WeaponController>();
@@ -47,7 +49,7 @@ public class Arrow : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && weapon.loaded == true && transform.parent == weapon.parentPos && weapon.wallFront == false)
         {
-            AudioSource.Play();
+            bowSource.Play();
 
             transform.parent = null;
             weapon.loaded = false;
@@ -110,8 +112,8 @@ public class Arrow : MonoBehaviour
                 arrowSpeed = 0;
 
                 Randomizer();
-                audioSource1.clip = Audio[randomNum];
-                audioSource1.Play();
+                arrowHitSource.clip = ArrowHit[randomNum];
+                arrowHitSource.Play();
             }
         }
 
@@ -125,12 +127,11 @@ public class Arrow : MonoBehaviour
 
                 transform.parent = other.transform;
                 Transform parent = transform.parent;
-                transform.position = parent.position;
 
 
                 Randomizer();
-                audioSource1.clip = Audio[randomNum];
-                audioSource1.Play();
+                arrowHitSource.clip = ArrowHit[randomNum];
+                arrowHitSource.Play();
             }
         }
 
@@ -140,7 +141,14 @@ public class Arrow : MonoBehaviour
 
             if (flying == true)
             {
+                ghostDMG = other.GetComponent<AudioSource>();
+
+                Randomizer();
+                ghostDMG.clip = GhostDmg[randomNum];
+                ghostDMG.Play();
+
                 enemy.health -= damage;
+                enemy.seeking = true;
             }
         }
     }

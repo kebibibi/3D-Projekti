@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     public float health;
     float randomSpeed;
     float randomTurn;
+    float randomAcc;
 
     public bool seeking;
     public float seekDis;
@@ -27,9 +28,11 @@ public class EnemyAI : MonoBehaviour
 
         randomSpeed = Random.Range(3.2f, 5.2f);
         randomTurn = Random.Range(80.1f, 119.1f);
+        randomAcc = Random.Range(7, 15);
 
         agent.speed = randomSpeed;
         agent.angularSpeed = randomTurn;
+        agent.acceleration = randomAcc;
 
         seeking = false;
     }
@@ -57,11 +60,11 @@ public class EnemyAI : MonoBehaviour
         if(playerDis.magnitude <= seekDis)
         {
             seeking = true;
+        }
 
-            if(seeking == true)
-            {
-                Seek();
-            }
+        if (seeking == true)
+        {
+            Seek();
         }
     }
 }
