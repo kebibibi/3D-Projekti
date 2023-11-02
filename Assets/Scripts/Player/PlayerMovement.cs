@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     int randomStep;
     int lastStep;
 
+    public bool key;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

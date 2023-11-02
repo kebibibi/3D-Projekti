@@ -18,6 +18,7 @@ public class Arrow : MonoBehaviour
 
     public WeaponController weapon;
     public EnemyAI enemy;
+    public WaypointEnemy wpenemy;
     public EnemyHb enemyHB;
 
     public AudioSource bowSource;
@@ -149,6 +150,23 @@ public class Arrow : MonoBehaviour
 
                 enemy.health -= damage;
                 enemy.seeking = true;
+            }
+        }
+
+        if (other.gameObject.CompareTag("WPEnemy"))
+        {
+            wpenemy = other.gameObject.GetComponent<WaypointEnemy>();
+
+            if (flying == true)
+            {
+                ghostDMG = other.GetComponent<AudioSource>();
+
+                Randomizer();
+                ghostDMG.clip = GhostDmg[randomNum];
+                ghostDMG.Play();
+
+                wpenemy.health -= damage;
+                wpenemy.seeking = true;
             }
         }
     }

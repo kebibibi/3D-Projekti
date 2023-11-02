@@ -5,17 +5,11 @@ using UnityEngine;
 public class ChestOpen : MonoBehaviour
 {
     public Transform player;
-    public Material chestmat;
+    public Animator chestani;
 
     public float chestOpenDistance;
 
     public bool open;
-    bool oneOpen = true;
-
-    private void Start()
-    {
-        chestmat.color = new Color(255, 0, 0);
-    }
 
     void FixedUpdate()
     {
@@ -27,11 +21,7 @@ public class ChestOpen : MonoBehaviour
 
             if (open)
             {
-                if (oneOpen)
-                {
-                    chestmat.color = new Color(254, 254, 254);
-                    oneOpen = false;
-                }
+                chestani.SetBool("Open", true);
             }
         }
     }

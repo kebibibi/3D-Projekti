@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerHurt : MonoBehaviour
 {
     public GameObject gameoverScreen;
+    public WeaponController weapon;
+    PlayerMovement movement;
 
     public float maxHealth;
     public float health;
@@ -26,6 +28,8 @@ public class PlayerHurt : MonoBehaviour
         if (health <= 0)
         {
             gameoverScreen.SetActive(true);
+            weapon.enabled = false;
+            movement.enabled = false;
         }
 
         if(health >= 100)

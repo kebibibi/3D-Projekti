@@ -6,7 +6,7 @@ public class cameraPosition : MonoBehaviour
 {
     public CamFollow cam;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {

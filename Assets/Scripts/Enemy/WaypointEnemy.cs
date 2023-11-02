@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class WaypointEnemy : MonoBehaviour
 {
+    public NavMeshAgent agent;
+
+    public GameObject target;
     public PlayerMovement player;
     public Arrow arrow;
     public EnemyHb enemyHB;
-    public salaovi salainen;
 
     public Vector3 destination;
 
@@ -23,9 +25,11 @@ public class EnemyAI : MonoBehaviour
     public AudioSource seek;
     public AudioClip audio;
 
-    public NavMeshAgent agent;
+    public GameObject[] waypoints;
 
-    void Start()
+    public int currentWP;
+
+    public void Start()
     {
         player = FindAnyObjectByType<PlayerMovement>();
 
@@ -40,27 +44,30 @@ public class EnemyAI : MonoBehaviour
         seeking = false;
     }
 
-    void Seek()
+    void Seek(Vector3 location)
     {
-        agent.SetDestination(destination);
+        agent.SetDestination(location);
     }
 
     void Update()
     {
-        destination = player.transform.position;
-
         if (health <= 0)
         {
             Destroy(this.gameObject);
-            salainen.ghostCount++;
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+        if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 3)
+            currentWP++;
+
+        if (currentWP >= waypoints.Length)
+            currentWP = 0;
+
         Vector3 playerDis = player.transform.position - transform.position;
 
-        if(playerDis.magnitude <= seekDis)
+        if (playerDis.magnitude <= seekDis)
         {
             seeking = true;
         }
@@ -68,7 +75,11 @@ public class EnemyAI : MonoBehaviour
         if (seeking == true)
         {
             seek.PlayOneShot(audio);
-            Seek();
+            Seek(player.transform.position);
+        }
+        else
+        {
+            Seek(waypoints[currentWP].transform.position);
         }
     }
 }
