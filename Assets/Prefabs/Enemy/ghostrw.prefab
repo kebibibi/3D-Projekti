@@ -394,6 +394,7 @@ MonoBehaviour:
   seekDis: 14
   seek: {fileID: 4034240555427710257}
   audio: {fileID: 8300000, guid: f20e8d27c88184f988778fcaf37d3af7, type: 3}
+  ghostdie: {fileID: 8300000, guid: bde7ef6dd093e41e4bda9db7c4b40d96, type: 3}
   agent: {fileID: 5208010487929694247}
 --- !u!95 &8019607067119979801
 Animator:

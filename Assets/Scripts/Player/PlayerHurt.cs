@@ -6,7 +6,7 @@ public class PlayerHurt : MonoBehaviour
 {
     public GameObject gameoverScreen;
     public WeaponController weapon;
-    PlayerMovement movement;
+    public GameObject player;
 
     public float maxHealth;
     public float health;
@@ -15,6 +15,9 @@ public class PlayerHurt : MonoBehaviour
     public float invTimer;
 
     public bool hurt;
+
+    public AudioSource source;
+    public AudioClip hurtsound;
 
     void Start()
     {
@@ -28,8 +31,7 @@ public class PlayerHurt : MonoBehaviour
         if (health <= 0)
         {
             gameoverScreen.SetActive(true);
-            weapon.enabled = false;
-            movement.enabled = false;
+            player.SetActive(false);
         }
 
         if(health >= 100)
@@ -46,6 +48,17 @@ public class PlayerHurt : MonoBehaviour
             {
                 health -= 10;
                 hurt = false;
+                source.PlayOneShot(hurtsound);
+            }
+        }
+
+        if (other.gameObject.CompareTag("WPEnemy"))
+        {
+            if (hurt)
+            {
+                health -= 10;
+                hurt = false;
+                source.PlayOneShot(hurtsound);
             }
         }
     }
@@ -60,6 +73,22 @@ public class PlayerHurt : MonoBehaviour
 
                 if (invTimer <= 0)
                 {
+                    source.PlayOneShot(hurtsound);
+                    health -= 10f;
+                    invTimer = maxInv;
+                }
+            }
+        }
+
+        if (other.gameObject.CompareTag("WPEnemy"))
+        {
+            if (invTimer > 0)
+            {
+                invTimer -= Time.deltaTime;
+
+                if (invTimer <= 0)
+                {
+                    source.PlayOneShot(hurtsound);
                     health -= 10f;
                     invTimer = maxInv;
                 }
@@ -70,6 +99,11 @@ public class PlayerHurt : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
+        {
+            invTimer = maxInv;
+        }
+
+        if (other.gameObject.CompareTag("WPEnemy"))
         {
             invTimer = maxInv;
         }

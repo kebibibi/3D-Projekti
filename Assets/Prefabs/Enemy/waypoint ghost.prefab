@@ -325,7 +325,8 @@ MonoBehaviour:
   seeking: 0
   seekDis: 14
   seek: {fileID: 3279445382721667562}
-  audio: {fileID: 8300000, guid: f20e8d27c88184f988778fcaf37d3af7, type: 3}
+  ghostaudio: {fileID: 8300000, guid: f20e8d27c88184f988778fcaf37d3af7, type: 3}
+  ghostdie: {fileID: 8300000, guid: bde7ef6dd093e41e4bda9db7c4b40d96, type: 3}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}

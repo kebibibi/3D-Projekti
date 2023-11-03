@@ -19,11 +19,14 @@ public class WaypointEnemy : MonoBehaviour
     float randomTurn;
     float randomAcc;
 
+    bool played;
+
     public bool seeking;
     public float seekDis;
 
     public AudioSource seek;
-    public AudioClip audio;
+    public AudioClip ghostaudio;
+    public AudioClip ghostdie;
 
     public GameObject[] waypoints;
 
@@ -53,6 +56,7 @@ public class WaypointEnemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            seek.PlayOneShot(ghostdie);
             Destroy(this.gameObject);
         }
     }
@@ -74,7 +78,11 @@ public class WaypointEnemy : MonoBehaviour
 
         if (seeking == true)
         {
-            seek.PlayOneShot(audio);
+            if (!played)
+            {
+                seek.PlayOneShot(ghostaudio);
+                played = true;
+            }
             Seek(player.transform.position);
         }
         else

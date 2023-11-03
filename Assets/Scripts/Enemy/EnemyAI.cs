@@ -20,8 +20,11 @@ public class EnemyAI : MonoBehaviour
     public bool seeking;
     public float seekDis;
 
+    bool played;
+
     public AudioSource seek;
-    public AudioClip audio;
+    public AudioClip ghosthurt;
+    public AudioClip ghostdie;
 
     public NavMeshAgent agent;
 
@@ -51,6 +54,7 @@ public class EnemyAI : MonoBehaviour
 
         if (health <= 0)
         {
+            seek.PlayOneShot(ghostdie);
             Destroy(this.gameObject);
             salainen.ghostCount++;
         }
@@ -67,7 +71,12 @@ public class EnemyAI : MonoBehaviour
 
         if (seeking == true)
         {
-            seek.PlayOneShot(audio);
+            if (!played)
+            {
+                seek.PlayOneShot(ghosthurt);
+                played = true;
+            }
+
             Seek();
         }
     }

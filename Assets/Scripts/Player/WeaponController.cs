@@ -18,6 +18,8 @@ public class WeaponController : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public List<AudioClip> reload = new List<AudioClip>();
+
     void Start()
     {
         enabled = false;
@@ -37,6 +39,9 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && loaded == false && loading == false)
         {
             loading = true;
+
+            int random = Random.Range(0, 2);
+            audioSource.clip = reload[random];
             audioSource.Play();
         }
         if (loading == true)
